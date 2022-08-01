@@ -13,9 +13,9 @@ import java.util.HashMap;
 import java.util.List;
 
 public class ParticleTrailManager {
-    private @Getter List<ParticleTrailObject> arrows;
-    private @Getter BukkitRunnable setupTask;
-    private @Getter List<ParticleTrailObject> removalCache;
+    private final @Getter List<ParticleTrailObject> arrows;
+    private final @Getter BukkitRunnable setupTask;
+    private final @Getter List<ParticleTrailObject> removalCache;
 
     private @Getter final HashMap<String, ParticleColor> metadataColorMap = new HashMap<>();
 

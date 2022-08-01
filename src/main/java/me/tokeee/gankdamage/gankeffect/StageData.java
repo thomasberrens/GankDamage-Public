@@ -4,9 +4,9 @@ import lombok.Getter;
 
 public class StageData {
 
-    private @Getter int playerCount;
-    private @Getter double damage;
-    private @Getter int currentStage;
+    private final @Getter int playerCount;
+    private final @Getter double damage;
+    private final @Getter int currentStage;
 
     public StageData(int playerCount, double damage, int stageCount){
         this.playerCount = playerCount;

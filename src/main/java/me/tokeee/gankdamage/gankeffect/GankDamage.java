@@ -19,17 +19,13 @@ import org.bukkit.event.player.PlayerQuitEvent;
 import java.util.*;
 
 public class GankDamage implements Listener {
-    private @Getter Map<UUID, GPlayer> gankMap = new HashMap<UUID, GPlayer>();
-
-    private static @Getter GankDamage instance;
+    private final @Getter Map<UUID, GPlayer> gankMap = new HashMap<UUID, GPlayer>();
 
     private @Getter boolean enabled = false;
 
     private final List<StageData> stageDataList = new ArrayList<>();
 
     public GankDamage(){
-        instance = this;
-
         stageDataList.add(new StageData(GankValue.getPlayerCountStage1(), GankValue.getStage1(), 1));
         stageDataList.add(new StageData(GankValue.getPlayerCountStage2(), GankValue.getStage2(), 2));
         stageDataList.add(new StageData(GankValue.getPlayerCountStage3(), GankValue.getStage3(), 3));

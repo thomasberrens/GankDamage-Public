@@ -16,22 +16,15 @@ import me.tokeee.gankdamage.gankeffect.GankParticles;
 import me.tokeee.gankdamage.particles.ParticleTrailManager;
 import me.tokeee.gankdamage.regions.RegionData;
 import me.tokeee.gankdamage.regions.RegionManager;
-import me.tokeee.gankdamage.regions.RegionRecord;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
 import java.io.*;
-import java.lang.reflect.Type;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Base64;
-import java.util.HashMap;
-import java.util.Map;
 
 public final class GankEffect extends JavaPlugin {
 

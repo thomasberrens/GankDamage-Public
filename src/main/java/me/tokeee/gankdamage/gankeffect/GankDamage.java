@@ -3,7 +3,7 @@ package me.tokeee.gankdamage.gankeffect;
 import lombok.Getter;
 import lombok.Setter;
 import me.tokeee.gankdamage.GankEffect;
-import me.tokeee.gankdamage.events.EventManager;
+import me.tokeee.gankdamage.events.EventExaggerator;
 import me.tokeee.gankdamage.utils.TimeUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -34,7 +34,7 @@ public class GankDamage implements Listener {
 
     private @Getter @Setter int maxDiff = GankEffect.getInstance().getConfig().getInt("gank-damage.ThresholdInSeconds");;
 
-    private final EventManager eventManager = GankEffect.getInstance().getEventManager();
+    private final EventExaggerator eventExaggerator = GankEffect.getInstance().getEventExaggerator();
 
     @EventHandler (priority = EventPriority.HIGHEST)
     public void onHit(EntityDamageByEntityEvent event){
@@ -139,7 +139,7 @@ public class GankDamage implements Listener {
         for (final StageData stageData : stageDataList) {
             if (stageData.getPlayerCount() == damagerCount) {
                 extraDamage = damage * stageData.getDamage();
-                eventManager.callGankStage(victim, stageData.getCurrentStage());
+                eventExaggerator.callGankStage(victim, stageData.getCurrentStage());
                 break;
             }
         }

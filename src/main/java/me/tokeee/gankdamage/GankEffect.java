@@ -1,16 +1,12 @@
 package me.tokeee.gankdamage;
 
-import com.google.common.reflect.TypeToken;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.stream.JsonReader;
 import lombok.Getter;
 import lombok.SneakyThrows;
 import me.tokeee.gankdamage.commands.GankWand;
 import me.tokeee.gankdamage.commands.RegionList;
 import me.tokeee.gankdamage.commands.RegionRemove;
 import me.tokeee.gankdamage.commands.ToggleGank;
-import me.tokeee.gankdamage.events.EventManager;
+import me.tokeee.gankdamage.events.EventExaggerator;
 import me.tokeee.gankdamage.gankeffect.GankDamage;
 import me.tokeee.gankdamage.gankeffect.GankParticles;
 import me.tokeee.gankdamage.particles.ParticleTrailManager;
@@ -29,7 +25,7 @@ import java.util.Base64;
 public final class GankEffect extends JavaPlugin {
 
     private static GankEffect instance;
-    private @Getter EventManager eventManager;
+    private @Getter EventExaggerator eventExaggerator;
     private final FileConfiguration config = this.getConfig();
     private @Getter ParticleTrailManager particleTrailManager;
     private @Getter GankDamage gankDamage;
@@ -134,7 +130,7 @@ public final class GankEffect extends JavaPlugin {
     }
 
     private void initializeManagers() {
-        eventManager = new EventManager();
+        eventExaggerator = new EventExaggerator();
         gankDamage = new GankDamage();
         regionManager = new RegionManager();
         particleTrailManager = new ParticleTrailManager();

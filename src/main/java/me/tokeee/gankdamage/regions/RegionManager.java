@@ -64,7 +64,7 @@ public class RegionManager implements Listener {
     }
 
 
-    public boolean isLocationInRegion(final Location location) {
+    public boolean isLocationInGankRegion(final Location location) {
         for (final RegionData regionData : regionDataMap.values()) {
             final Location pointA = new Location(Bukkit.getWorld(regionData.getWorldName()), regionData.getAX(), regionData.getAY(), regionData.getAZ());
             final Location pointB = new Location(Bukkit.getWorld(regionData.getWorldName()), regionData.getBX(), regionData.getBY(), regionData.getBZ());

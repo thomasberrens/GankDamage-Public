@@ -46,7 +46,7 @@ public class GankDamage implements Listener {
 
         final Player victim = (Player) event.getEntity();
 
-        if (!GankEffect.getInstance().getRegionManager().isLocationInRegion(victim.getLocation())) return;
+        if (!GankEffect.getInstance().getRegionManager().isLocationInGankRegion(victim.getLocation())) return;
 
         final Player damager = (Player) event.getDamager();
 

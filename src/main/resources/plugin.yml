@@ -1,0 +1,22 @@
+name: GankDamage
+version: '${project.version}'
+main: me.tokeee.gankdamage.GankEffect
+authors: [ Tokeee ]
+description: Gank damage plugin
+commands:
+  togglegank:
+    description: Use this to toggle the gank mode.
+    usage: /toggleGank
+    permission: gankdamage.admin
+  gankwand:
+    description: Use this to get the wand to create a gank region.
+    usage: /gankwand
+    permission: gankdamage.admin
+  regionremove:
+    description: Use this to command to remove a gank region.
+    usage: /regionremove gankRegIoN
+    permission: gankdamage.admin
+  regionlist:
+    description: Lists every region with its coordinates.
+    usage: /regionlist
+    permission: gankdamage.admin

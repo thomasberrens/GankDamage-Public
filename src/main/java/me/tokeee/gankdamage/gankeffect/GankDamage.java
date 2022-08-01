@@ -23,12 +23,12 @@ public class GankDamage implements Listener {
 
     private @Getter boolean enabled = false;
 
-    private final List<StageData> stageDataList = new ArrayList<>();
+    private final HashMap<Short, StageData> stageDataMap = new HashMap<>();
 
     public GankDamage(){
-        stageDataList.add(new StageData(GankValue.getPlayerCountStage1(), GankValue.getStage1(), 1));
-        stageDataList.add(new StageData(GankValue.getPlayerCountStage2(), GankValue.getStage2(), 2));
-        stageDataList.add(new StageData(GankValue.getPlayerCountStage3(), GankValue.getStage3(), 3));
+        stageDataMap.put((short) 1, new StageData(GankValue.getPlayerCountStage1(), GankValue.getStage1(), 1));
+        stageDataMap.put((short) 2, new StageData(GankValue.getPlayerCountStage2(), GankValue.getStage2(), 2));
+        stageDataMap.put((short) 3, new StageData(GankValue.getPlayerCountStage3(), GankValue.getStage3(), 3));
 
     }
 
@@ -136,13 +136,12 @@ public class GankDamage implements Listener {
             damagerCount = GankValue.getPlayerCountStage3();
         }
 
-        for (final StageData stageData : stageDataList) {
-            if (stageData.getPlayerCount() == damagerCount) {
-                extraDamage = damage * stageData.getDamage();
-                eventExaggerator.callGankStage(victim, stageData.getCurrentStage());
-                break;
-            }
-        }
+        final StageData stageData = stageDataMap.get((short) damagerCount);
+
+        assert stageData != null;
+
+        extraDamage = damage * stageData.getDamage();
+        eventExaggerator.callGankStage(victim, stageData.getCurrentStage());
 
         return extraDamage;
     }

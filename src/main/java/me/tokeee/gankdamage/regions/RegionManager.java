@@ -65,8 +65,6 @@ public class RegionManager implements Listener {
 
 
     public boolean isLocationInRegion(final Location location) {
-        boolean isInRegion = false;
-
         for (final RegionData regionData : regionDataMap.values()) {
             final Location pointA = new Location(Bukkit.getWorld(regionData.getWorldName()), regionData.getAX(), regionData.getAY(), regionData.getAZ());
             final Location pointB = new Location(Bukkit.getWorld(regionData.getWorldName()), regionData.getBX(), regionData.getBY(), regionData.getBZ());
@@ -78,10 +76,10 @@ public class RegionManager implements Listener {
             int z2 = Math.max(pointA.getBlockZ(), pointB.getBlockZ());
 
             if (location.getX() >= x1 && location.getX() <= x2 && location.getZ() >= z1 && location.getZ() <= z2){
-                isInRegion = true;
+                return true;
          }
         }
 
-        return isInRegion;
+        return false;
     }
 }
